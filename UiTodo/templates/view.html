@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Seriolno</th>
+        <th scope="col">title</th>
+        <th scope="col">content</th>
+        <th scope="col">date</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    {% for Mode in data %}
+    <tbody>
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{Mode.title}}</td>
+        <td>{{Mode.content}}</td>
+        <td>{{mode.date}}</td>
+        <td>
+            <a href="{% url 'delete' Mode.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Delete</a>
+        </td>
+        <td>
+            <a href="{% url 'update' Mode.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Update</a>
+        </td>
+    </tr>
+    </tbody>
+    {% endfor %}
+</table>
+</div>
+
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+</body>
+</html>
